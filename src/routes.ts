@@ -1,5 +1,8 @@
 import { Express, Request, Response } from 'express'
-import { createEmployeeHandler } from './controller/employee.controller'
+import {
+  createEmployeeHandler,
+  getEmployeesHandler,
+} from './controller/employee.controller'
 import { createEmployee } from './service/employee.service'
 import validateRequest from './middleware/validateRequest'
 import { createEmployeeSchema } from './schema/employee.schema'
@@ -11,4 +14,7 @@ export default function (app: Express) {
     validateRequest(createEmployeeSchema),
     createEmployeeHandler
   )
+
+  // Get employees
+  app.get('/api/employees', getEmployeesHandler)
 }

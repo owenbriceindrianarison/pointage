@@ -10,3 +10,11 @@ export async function createEmployee(
     throw new Error(err)
   }
 }
+
+export async function getEmployees() {
+  try {
+    return Employee.find()
+  } catch (err: any) {
+    throw new Error(err)
+  }
+}
